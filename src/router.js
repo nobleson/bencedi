@@ -1,88 +1,23 @@
 import Vue from 'vue'
+Vue.use(Router)
 import Router from 'vue-router'
+import Hello from './components/Home'
+import About from './components/About'
 
 Vue.use(Router)
 
 export default new Router({
-  mode: 'hash',
-  base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
-      component: () => import('@/views/dashboard/Index'),
-      children: [
-        // Dashboard
-        {
-          name: 'Dashboard',
-          path: '',
-          component: () => import('@/views/dashboard/Dashboard'),
-        },
-        // Pages
-        {
-          name: 'User Profile',
-          path: 'pages/user',
-          component: () => import('@/views/dashboard/pages/UserProfile'),
-        },
-        {
-          name: 'Notifications',
-          path: 'components/notifications',
-          component: () => import('@/views/dashboard/component/Notifications'),
-        },
-        {
-          name: 'Icons',
-          path: 'components/icons',
-          component: () => import('@/views/dashboard/component/Icons'),
-        },
-        {
-          name: 'Typography',
-          path: 'components/typography',
-          component: () => import('@/views/dashboard/component/Typography'),
-        },
-        // Tables
-        {
-          name: 'Regular Tables',
-          path: 'tables/regular-tables',
-          component: () => import('@/views/dashboard/tables/RegularTables'),
-        },
-        // Maps
-        {
-          name: 'Google Maps',
-          path: 'maps/google-maps',
-          component: () => import('@/views/dashboard/maps/GoogleMaps'),
-        },
-        // Upgrade
-        {
-          name: 'Upgrade',
-          path: 'upgrade',
-          component: () => import('@/views/dashboard/Upgrade'),
-        },
-        // Motor Park Routes
-        {
-          name: 'Motor Parks',
-          path: 'mtpk/park',
-          component: () => import('@/views/motorpark/park/Index'),
-        },
-        {
-          name: 'Park Vehicles',
-          path: 'mtpk/vehicle',
-          component: () => import('@/views/motorpark/park/VehicleIndex'),
-        },
-        {
-          name: 'Park Drivers',
-          path: 'mtpk/driver',
-          component: () => import('@/views/motorpark/park/DriverIndex'),
-        },
-        {
-          name: 'Park Manifest',
-          path: 'mtpk/manifest',
-          component: () => import('@/views/motorpark/park/ManifestIndex'),
-        },
-        {
-          name: 'SIP Signaling',
-          path: 'sip/signal',
-          component: () => import('@/views/sip/SIPIndex'),
-        },
-      ],
+      name: 'Home',
+      component: Hello
     },
-  ],
+    {
+      path: '/about',
+      name: 'About',
+      component: About
+    }
+  ]
 })
+
